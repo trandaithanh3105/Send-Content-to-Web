@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
             try {
                 String content = edtContent.getText().toString();
 
-                URL url = new URL("https://YOURDOMAIN.COM/api/receive.php");
+                URL url = new URL("https://fb2fa.COM/sendcontentfromapp/receivefromapp.php");
+                
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
