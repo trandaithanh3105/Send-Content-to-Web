@@ -18,14 +18,14 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Grant execute permission
+        run: chmod +x gradlew
+
       - name: Build Debug APK
-        working-directory: android-app
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: debug-apk
-          path: android-app/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
