@@ -20,8 +20,21 @@ jobs:
           java-version: "17"
           cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x ./gradlew
+      # Cài Android SDK (để Gradle build Android được)
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      # Nếu repo chưa có ./gradlew thì tự download Gradle và tạo wrapper
+      - name: Bootstrap Gradle Wrapper if missing
+        shell: bash
+        run: |
+          if [ ! -f "./gradlew" ]; then
+            echo "gradlew not found -> creating wrapper..."
+            curl -L -o gradle.zip https://services.gradle.org/distributions/gradle-8.2-bin.zip
+            unzip -q gradle.zip
+            ./gradle-8.2/bin/gradle wrapper
+          fi
+          chmod +x ./gradlew
 
       - name: Build Debug APK
         run: ./gradlew :app:assembleDebug
